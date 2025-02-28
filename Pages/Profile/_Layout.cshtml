@@ -1,0 +1,12 @@
+﻿@using System.Security.Claims
+@{
+    Layout = "../Shared/_Layout.cshtml";
+    ViewData["User"] = ((ClaimsPrincipal)Model.User).FindFirstValue(ClaimTypes.Name);
+}
+<h1>@ViewData["User"] &rsaquo; @ViewData["ProfilePage"]</h1>
+@RenderBody()
+
+@section Scripts
+{
+    @{await RenderSectionAsync("Scripts", required: false);}
+}

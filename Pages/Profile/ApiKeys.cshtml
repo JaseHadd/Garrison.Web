@@ -1,0 +1,26 @@
+﻿@page "List"
+@using Garrison.Lib.Models
+@model Garrison.Web.Pages.Profile.ApiKeysModel
+@{
+    ViewData["ProfilePage"] = "API Keys";
+}
+<p>
+    <a asp-page="CreateApiKey">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <th>@Html.DisplayNameFor(m => m.ApiKeys[0].Name)</th>
+        <th>@Html.DisplayNameFor(m => m.ApiKeys[0].Birth)</th>
+        <th></th>
+    </thead>
+    <tbody>
+@foreach(var key in Model.ApiKeys)
+{
+    <tr>
+        <td>@Html.DisplayFor(m => key.Name)</td>
+        <td>@Html.DisplayFor(m => key.Birth)</td>
+        <td></td>
+    </tr>
+}
+    </tbody>
+</table>
